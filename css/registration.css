@@ -7,30 +7,28 @@
 	padding: 0px;
 }
 
-.hidden {
-	display: none;
+.error_border {
+	border: 2px solid red;
 }
 
-.error_highlight {
+.success_border {
+	border: 2px solid green;
+}
+
+.highlight {
 	border: 2px solid red;
 	background-color: lightyellow;
 }
 
 #wrapper {}
 
-#error_display {
-	border: 2px solid red;
-	font-size: 14px;
+#display_messages {
 	margin: 10px;
 	padding: 8px;
 }
-
-#registration_success {
-	border: 2px solid green;
-	font-size: 14px;
-	margin: 10px;
-	padding: 8px;
-}
+	#display_messages h3 {
+		font-size: 14px;
+	}
 
 #registration {
 	background-color: lightblue;
@@ -41,20 +39,17 @@
 	width: 360px;
 	text-align: right;
 }
-
-#registration * {
-	font-size: 16px;
-	padding: 5px;
-}
-
-#registration input {
-	border-radius: 10px;
-	width: 175px;
-}
-
-#registration input[type="submit"] {
-	background-color: lightgray;
-	border-radius: 10px;
-	padding: 10px 0px;
-	width: 100px;
-}
+	#registration * {
+		font-size: 16px;
+		padding: 5px;
+	}
+	#registration input {
+		border-radius: 10px;
+		width: 175px;
+	}
+		#registration input[type="submit"] {
+			background-color: lightgray;
+			border-radius: 10px;
+			padding: 10px 0px;
+			width: 100px;
+		}
