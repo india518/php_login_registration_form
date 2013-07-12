@@ -1,6 +1,6 @@
 <?php
 	require("connection.php");
-session_start();
+	session_start();
 
 	function email_validation()
 	{
@@ -16,7 +16,6 @@ session_start();
 	if( $_POST )
 	{
 		$errors = array();
-		// $errors = NULL;
 
 		//Validations for Login form:
 		if( $_POST["action"] == "login" )
@@ -33,7 +32,10 @@ session_start();
 				$errors["password"] = "Password should be at least 6 characters long";
 
 			if( count($errors) > 0 )
+			{
 				$_SESSION["login_error_messages"] = $errors;
+				header("location: index.php");
+			}
 			else
 			{
 				// Check that user exists
@@ -43,17 +45,23 @@ session_start();
 				{
 					//check that password is valid!
 					if ( $_POST["password"] != $user["password"] )
+					{
 						$_SESSION["login_error_messages"]["password"] = "Incorrect password.";
+						header("location: index.php");
+					}
 					else
+					{
 						// everything checks out, log in user!
 						$_SESSION["login_success_message"] = "Logged in sucessfully!";
+						header("location: wall.php");
+					}
 				}
 				else
 				{
 					$_SESSION["login_error_messages"]["user"] = "There is no account with this email address. Try registering for a new account!";
+						header("location: index.php");
 				}
 			}
-
 		} //end $_POST["action"] == "login"
 
 		//Validations for Registration form:
@@ -94,7 +102,10 @@ session_start();
 				$errors["confirm_password"] = "Passwords do not match.";
 
 			if( count($errors) > 0 )
+			{
 				$_SESSION["registration_error_messages"] = $errors;
+				header("location: index.php");
+			}
 			else
 			{
 				//FIRST - check to see if user already exists
@@ -116,15 +127,11 @@ session_start();
 					//echo $query;
 					//die();
 					$_SESSION["registration_success_message"] = "Thank you for submitting your information. Your new account has been created!";
-
+					header("location: index.php");
 				}
-
 			}
-
 		} //end $_POST["action"] == "register"
 
 	}
-	
-	header("location: index.php");
 
 ?>

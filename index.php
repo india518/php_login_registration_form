@@ -1,13 +1,12 @@
 <?php
-	require("connection.php");
-
 	session_start();
+	require("connection.php");
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
-		<title>User Login</title>
+		<title>Login and Registration</title>
 		<link rel="stylesheet" type="text/css" href="css/registration.css">
 	</head>
 	<body>
