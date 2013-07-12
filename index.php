@@ -36,15 +36,11 @@
 				<form id="login_form" class="form" action="process.php" method="post">
 					<div>
 						<label for="email">Email Address: </label>
-						<input type="text" name="email" id="email" placeholder="Email Address" 
-						<?= ( isset($_SESSION["login_error_messages"]["email"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="text" name="email" id="email" placeholder="Email Address" <?= ( isset($_SESSION["login_error_messages"]["email"]) ) ? " class='highlight'" : "" ?> />
 					</div>
 					<div>
 						<label for="password">Password: </label>
-						<input type="password" name="password" id="password" placeholder="password" 
-						<?= ( isset($_SESSION["login_error_messages"]["password"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="password" name="password" id="password" placeholder="password" <?= ( isset($_SESSION["login_error_messages"]["password"]) ) ? " class='highlight'" : "" ?> />
 					</div>
 					<input type="hidden" name="action" value="login" />
 					<input type="submit" value="Log In" />
@@ -75,39 +71,30 @@
 				<form id="registration_form" class="form" action="process.php" method="post">
 					<div>
 						<label for="first_name">* First Name: </label>
-						<input type="text" name="first_name" id="first_name" placeholder="First Name" 
-						<?= ( isset($_SESSION["registration_error_messages"]["first_name"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="text" name="first_name" id="first_name" placeholder="First Name" <?= ( isset($_SESSION["registration_error_messages"]["first_name"]) ) ?
+								" class='highlight'" : "" ?> />
 					</div>
 					<div>
 						<label for="last_name">* Last Name: </label>
-						<input type="text" name="last_name" id="last_name" placeholder="Last Name" 
-						<?= ( isset($_SESSION["registration_error_messages"]["last_name"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="text" name="last_name" id="last_name" placeholder="Last Name" <?= ( isset($_SESSION["registration_error_messages"]["last_name"]) ) ?
+								" class='highlight'" : "" ?> />
 					</div>
 					<div>
 						<label for="email">* Email Address: </label>
-						<input type="text" name="email" id="email" placeholder="Email Address" 
-						<?= ( isset($_SESSION["registration_error_messages"]["email"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="text" name="email" id="email" placeholder="Email Address" <?= ( isset($_SESSION["registration_error_messages"]["email"]) ) ?
+								" class='highlight'" : "" ?> />
 					</div>
 					<div>		
 						<label for="birth_date">Birth Date: </label>
-						<input type="date" name="birth_date" id="birth_date" 
-						<?= ( isset($_SESSION["registration_error_messages"]["birth_date"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="date" name="birth_date" id="birth_date" <?= ( isset($_SESSION["registration_error_messages"]["birth_date"]) ) ? " class='highlight'" : "" ?> />
 					</div>
 					<div>
 						<label for="password">* Password: </label>
-						<input type="password" name="password" id="password" placeholder="password" 
-						<?= ( isset($_SESSION["registration_error_messages"]["password"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="password" name="password" id="password" placeholder="password" <?= ( isset($_SESSION["registration_error_messages"]["password"]) ) ? " class='highlight'" : ""	?> />
 					</div>
 					<div>
 						<label for="confirm_password">* Confirm Password: </label>
-						<input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password" 
-						<?= ( isset($_SESSION["registration_error_messages"]["confirm_password"]) ) ?
-								" class='highlight'" : ""	?> />
+						<input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password" <?= ( isset($_SESSION["registration_error_messages"]["confirm_password"]) ) ? " class='highlight'" : "" ?> />
 					</div>
 					<input type="hidden" name="action" value="register" />
 					<input type="submit" value="Register" />
