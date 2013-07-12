@@ -16,21 +16,21 @@ $db_selected = mysql_select_db(DB_DATABASE, $connection) or die ('Could not find
 //fetches all records from the query and returns an array with the fetched records
 function fetch_all($query)
 {
- $data = array();
+	$data = array();
 
- $result = mysql_query($query);
- while($row = mysql_fetch_assoc($result))
- {
-  $data[] = $row;
- }
- return $data;
+	$result = mysql_query($query);
+	while($row = mysql_fetch_assoc($result))
+	{
+		$data[] = $row;
+	}
+	return $data;
 }
 
 //fetch the first record obtained from the query
 function fetch_record($query)
 {
- $result = mysql_query($query);
- return mysql_fetch_assoc($result);
+	$result = mysql_query($query);
+	return mysql_fetch_assoc($result);
 }
 
 ?>

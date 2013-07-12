@@ -54,8 +54,8 @@ h2 {
 }
 
 .highlight {
+	background-color: #fff2a3;
 	border: 2px solid red;
-	background-color: lightyellow;
 }
 
 #wrapper {}
