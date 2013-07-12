@@ -54,7 +54,7 @@
 			else // we found a user!
 			{
 				// but is their password valid?
-				if ( $_POST["password"] != $user["password"] )
+				if ( md5($_POST["password"]) != $user["password"] )
 				{
 					$_SESSION["login_error_messages"]["password"] = "Incorrect password.";
 					header("location: index.php");
@@ -76,15 +76,22 @@
 
 	function do_registration()
 	{
+		$min_password_length = 7;
+		$errors = array();
+
 		//First name validation
 		if ( empty($_POST["first_name"]) )
 			$errors["first_name"] = "First Name cannot be blank.";
-		else if ( is_numeric($_POST["first_name"]) )
+		else if ( preg_match("#[\d]#", $_POST["first_name"]) )
+
+			//note: is_numeric($_POST["first_name"]) doesn't really work!
+			// it will allow a first name like "India518" when it shouldn't!
+
 			$errors["first_name"] = "First Name cannot contain numbers.";
 		//Last name validation
 		if ( empty($_POST["last_name"]) )
 			$errors["last_name"] = "Last Name cannot be blank.";
-		else if ( is_numeric($_POST["last_name"]) )
+		else if ( preg_match("#[\d]#", $_POST["last_name"]) )
 			$errors["last_name"] = "Last Name cannot contain numbers.";
 		//Email validation
 		$message = email_validation();
@@ -94,11 +101,12 @@
 		// The form uses a datepicker, but let's keep this for reference.
 		// if(! empty($_POST["birth_date"]) AND ! preg_match(" '\b(0?[1-9]|1[012])[- /.](0?[1-9]|[12][0-9]|3[01])[- /.](19|20)?[0-9]{2}\b' ", $_POST["birth_date"]) )
 		// 	$errors["birth_date"] = "Birth Date should be in valid format.";
+
 		// Password format validation
 		if( empty($_POST["password"]) )
 			$errors["password"] = "Password cannot be blank.";
-		else if ( strlen($_POST["password"]) < 6 )
-			$errors["password"] = "Password should be at least 6 characters long";
+		else if ( strlen($_POST["password"]) < $min_password_length )
+			$errors["password"] = "Password should be at least {$min_password_length} characters.";
 		//Confirm password validation
 		if ( empty($_POST["confirm_password"]) )
 			$errors["confirm_password"] = "The Confirm Password field cannot be blank.";
@@ -127,7 +135,7 @@
 				$first_name = $_POST["first_name"];
 				$last_name = $_POST["last_name"];
 				$email = $_POST["email"];
-				$password = $_POST["password"];
+				$password = md5($_POST["password"]);
 				$query = "INSERT INTO users (first_name, last_name, email, password, created_at) VALUES ('{$first_name}', '{$last_name}', '{$email}', '{$password}', NOW())";
 				mysql_query($query);
 
